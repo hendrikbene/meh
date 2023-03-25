@@ -55,27 +55,14 @@ public partial class player : Area2D
 			animatedSprite2D.Animation = "walk";
 			animatedSprite2D.FlipV = false;
 			// See the note below about boolean assignment.
-			if (velocity.X < 0)
-			{
-				animatedSprite2D.FlipH = true;
-			}
-			else
-			{
-				animatedSprite2D.FlipH = false;
-			}
+			animatedSprite2D.FlipH = velocity.X < 0;
 		}
 		else if (velocity.Y != 0)
 		{
 			animatedSprite2D.Animation = "up";
-			if (velocity.Y > 0)
-			{
-				animatedSprite2D.FlipV = true;
-			}
-			else
-			{
-				animatedSprite2D.FlipV = false;
-			}
+			animatedSprite2D.FlipV = velocity.Y > 0;
 		}
+
 
 		Position += velocity * (float)delta;
 		Position = new Vector2(
