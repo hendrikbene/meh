@@ -1,10 +1,13 @@
 extends Area2D
+signal hit
+
 @export var speed: int = 400 # How fast the player will move (pixels/sec).
 var screen_size: Vector2 # Size of the game window.
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
+	hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -44,3 +47,5 @@ func _process(delta):
 		else:
 			$AnimatedSprite2D.flip_v = false
 	
+func _on_body_entered(body):
+	pass # Replace with function body.
