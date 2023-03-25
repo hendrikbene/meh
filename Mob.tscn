@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctijoxypdtign"]
+
+[ext_resource type="Texture2D" uid="uid://1fguyo4uuda7" path="res://art/enemyWalking_1.png" id="1_nlere"]
+[ext_resource type="Texture2D" uid="uid://bx6ktrq6fnq6q" path="res://art/enemyWalking_2.png" id="2_34ouu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j8vf7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nlere")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_34ouu")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3fc7j"]
+radius = 64.0
+height = 128.0
+
+[node name="Mob" type="RigidBody2D"]
+scale = Vector2(0.5, 0.5)
+gravity_scale = 0.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_j8vf7")
+animation = &"walking"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 0
+shape = SubResource("CapsuleShape2D_3fc7j")
