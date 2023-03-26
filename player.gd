@@ -45,7 +45,7 @@ func _process(delta):
 		else:
 			$AnimatedSprite2D.flip_v = false
 	
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	hide() # Player disappears after being hit.
 	hit.emit()
 	# Must be deferred as we can't change physics properties on a physics callback.

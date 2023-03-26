@@ -1,4 +1,5 @@
 extends CanvasLayer
+
 signal start_game
 
 # Called when the node enters the scene tree for the first time.
@@ -7,7 +8,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func show_message(text):
@@ -24,14 +25,13 @@ func show_game_over():
 	$Message.show()
 	# Make a one-shot timer and wait for it to finish.
 	await get_tree().create_timer(1.0).timeout
-	$StartButton.show()
+	$Start.show()
 
 func update_score(score):
-	$ScoreLabel.text = str(score)
-
+	$Score.text = str(score)
 
 func _on_start_pressed() -> void:
-	$StartButton.hide()
+	$Start.hide()
 	start_game.emit()
 
 func _on_message_timer_timeout() -> void:
