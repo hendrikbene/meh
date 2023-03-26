@@ -1,6 +1,5 @@
 extends Area2D
 signal hit
-
 @export var speed: int = 400 # How fast the player will move (pixels/sec).
 var screen_size: Vector2 # Size of the game window.
 
